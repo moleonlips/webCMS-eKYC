@@ -1,0 +1,338 @@
+<!-- begin::Header -->
+<div class="card-header border-0 pt-5">
+  <h3 class="card-title align-items-start flex-column">
+    <span class="card-label fw-bolder fs-3 mb-1">Danh sách cần duyệt</span> <br>
+    <span class="text-muted mt-1 fw-bold fs-7">Có hơn 100 tài khoản đang chờ duyệt</span>
+  </h3>
+  <div class="card-toolbar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="
+            nav-link
+            btn btn-sm btn-color-muted btn-active btn-active-light-primary
+            fw-bolder
+            px-4
+            me-1
+          " data-bs-toggle="tab" [ngClass]="activeClass('kt_table_widget_5_tab_1')"
+          (click)="setTab('kt_table_widget_5_tab_1')">
+          Tháng này
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="
+            nav-link
+            btn btn-sm btn-color-muted btn-active btn-active-light-primary
+            fw-bolder
+            px-4
+            me-1
+          " data-bs-toggle="tab" [ngClass]="activeClass('kt_table_widget_5_tab_2')"
+          (click)="setTab('kt_table_widget_5_tab_2')">
+          Tuần này
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="
+            nav-link
+            btn btn-sm btn-color-muted btn-active btn-active-light-primary
+            fw-bolder
+            px-4
+          " data-bs-toggle="tab" [ngClass]="activeClass('kt_table_widget_5_tab_3')"
+          (click)="setTab('kt_table_widget_5_tab_3')">
+          Hôm nay
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- end::Header -->
+<!-- begin::Body -->
+<div class="card-body py-3">
+  <div class="tab-content">
+    <!-- begin::Tap pane -->
+    <div class="tab-pane fade" [ngClass]="activeClass('kt_table_widget_5_tab_1')" id="kt_table_widget_5_tab_1">
+      <!-- begin::Table container -->
+      <div class="table-responsive">
+        <!-- begin::Table -->
+        <table class="
+            table table-row-dashed table-row-gray-200
+            align-middle
+            gs-0
+            gy-4
+          ">
+          <!-- begin::Table head -->
+          <thead>
+            <tr class="border-0">
+              <th class="p-0 text-dark fw-bolder w-50px symbol-label">STT</th>
+              <th class="p-0 text-dark fw-bolder min-w-150px fs-6">Họ tên & mã định danh</th>
+              <th class="p-0 text-dark fw-bolder min-w-140px">Số điện thoại</th>
+              <th class="p-0 text-dark fw-bolder min-w-110px">Ngày yêu cầu / hạn xác nhận</th>
+              <th class="p-0 text-dark fw-bolder min-w-50px text-end">Hạn duyệt</th>
+            </tr>
+          </thead>
+          <!-- end::Table head -->
+          <!-- begin::Table body -->
+          <tbody>
+            <tr id="kt_activities_toggle" class="kt_activities_toggle" *ngFor="let item of month_data, let i = index">
+              <td>
+                <div class="symbol symbol-45px me-2">
+                  <span style="padding: 0 10px">{{i + 1}}</span>
+                </div>
+              </td>
+              <td>
+                <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                  {{item.fullname}}
+                </a>
+                <span class="text-muted fw-bold d-block">{{item.c_id}}</span>
+              </td>
+              <td class="text-muted fw-bold">{{item.phonenumber}}</td>
+
+              <td>
+                <span class="badge badge-light-success">{{item.date_of_request}}</span> <br>
+                <span class="badge badge-light-warning">{{item.date_of_confirm}}</span>
+              </td>
+              <td class="text-end">
+                <span style="margin-right: 10px" class="badge badge-light-danger">{{item.date_of_browse}}</span>
+              </td>
+            </tr>
+          </tbody>
+          <!-- end::Table body -->
+        </table>
+
+        <div class="d-flex flex-stack flex-wrap pt-10">
+          <div class="fs-6 fw-bold text-gray-700">Showing 1 to 10 of 50 entries</div>
+
+          <ul class="pagination">
+            <li class="page-item previous">
+              <a class="page-link cursor-pointer">
+                <i class="previous"></i>
+              </a>
+            </li>
+
+            <li class="page-item active">
+              <a class="page-link cursor-pointer"> 1 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 2 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 3 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 4 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 5 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 6 </a>
+            </li>
+
+            <li class="page-item next">
+              <a class="page-link cursor-pointer">
+                <i class="next"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end::Table -->
+    </div>
+    <!-- end::Tap pane -->
+    <!-- begin::Tap pane -->
+    <div class="tab-pane fade" [ngClass]="activeClass('kt_table_widget_5_tab_2')" id="kt_table_widget_5_tab_2">
+      <!-- begin::Table container -->
+      <div class="table-responsive">
+        <!-- begin::Table -->
+        <table class="
+            table table-row-dashed table-row-gray-200
+            align-middle
+            gs-0
+            gy-4
+          ">
+          <!-- begin::Table head -->
+          <thead>
+            <tr class="border-0">
+              <th class="p-0 text-dark fw-bolder w-50px symbol-label">STT</th>
+              <th class="p-0 text-dark fw-bolder min-w-150px fs-6">Họ tên & mã định danh</th>
+              <th class="p-0 text-dark fw-bolder min-w-140px">Số điện thoại</th>
+              <th class="p-0 text-dark fw-bolder min-w-110px">Ngày yêu cầu / hạn xác nhận</th>
+              <th class="p-0 text-dark fw-bolder min-w-50px text-end">Hạn duyệt</th>
+            </tr>
+          </thead>
+          <!-- end::Table head -->
+          <!-- begin::Table body -->
+          <tbody>
+            <tr id="kt_activities_toggle" class="kt_activities_toggle" *ngFor="let item of week_data, let i = index">
+              <td>
+                <div class="symbol symbol-45px me-2">
+                  <span style="padding: 0 10px">{{i + 1}}</span>
+                </div>
+              </td>
+              <td>
+                <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                  {{item.fullname}}
+                </a>
+                <span class="text-muted fw-bold d-block">{{item.c_id}}</span>
+              </td>
+              <td class="text-end text-muted fw-bold">{{item.phonenumber}}</td>
+
+              <td>
+                <span class="badge badge-light-success">{{item.date_of_request}}</span> <br>
+                <span class="badge badge-light-warning">{{item.date_of_confirm}}</span>
+              </td>
+              <td class="text-end">
+                <span style="margin-right: 10px" class="badge badge-light-danger">{{item.date_of_browse}}</span>
+              </td>
+            </tr>
+          </tbody>
+          <!-- end::Table body -->
+        </table>
+
+        <div class="d-flex flex-stack flex-wrap pt-10">
+          <div class="fs-6 fw-bold text-gray-700">Showing 1 to 10 of 50 entries</div>
+
+          <ul class="pagination">
+            <li class="page-item previous">
+              <a class="page-link cursor-pointer">
+                <i class="previous"></i>
+              </a>
+            </li>
+
+            <li class="page-item active">
+              <a class="page-link cursor-pointer"> 1 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 2 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 3 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 4 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 5 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 6 </a>
+            </li>
+
+            <li class="page-item next">
+              <a class="page-link cursor-pointer">
+                <i class="next"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end::Table -->
+    </div>
+    <!-- end::Tap pane -->
+    <!-- begin::Tap pane -->
+    <div class="tab-pane fade" [ngClass]="activeClass('kt_table_widget_5_tab_3')" id="kt_table_widget_5_tab_3">
+      <!-- begin::Table container -->
+      <div class="table-responsive">
+        <!-- begin::Table -->
+        <table class="
+            table table-row-dashed table-row-gray-200
+            align-middle
+            gs-0
+            gy-4
+          ">
+          <!-- begin::Table head -->
+          <thead>
+            <tr class="border-0">
+              <th class="p-0 text-dark fw-bolder w-50px symbol-label">STT</th>
+              <th class="p-0 text-dark fw-bolder min-w-150px fs-6">Họ tên & mã định danh</th>
+              <th class="p-0 text-dark fw-bolder min-w-140px">Số điện thoại</th>
+              <th class="p-0 text-dark fw-bolder min-w-110px">Ngày yêu cầu / hạn xác nhận</th>
+              <th class="p-0 text-dark fw-bolder min-w-50px text-end">Hạn duyệt</th>
+            </tr>
+          </thead>
+          <!-- end::Table head -->
+          <!-- begin::Table body -->
+          <tbody>
+            <tr id="kt_activities_toggle" class="kt_activities_toggle" *ngFor="let item of day_data, let i = index">
+              <td>
+                <div class="symbol symbol-45px me-2">
+                  <span style="padding: 0 10px">{{i + 1}}</span>
+                </div>
+              </td>
+              <td>
+                <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">
+                  {{item.fullname}}
+                </a>
+                <span class="text-muted fw-bold d-block">{{item.c_id}}</span>
+              </td>
+              <td class="text-end text-muted fw-bold">{{item.phonenumber}}</td>
+
+              <td>
+                <span class="badge badge-light-success">{{item.date_of_request}}</span> <br>
+                <span class="badge badge-light-warning">{{item.date_of_confirm}}</span>
+              </td>
+              <td class="text-end">
+                <span style="margin-right: 10px" class="badge badge-light-danger">{{item.date_of_browse}}</span>
+              </td>
+            </tr>
+          </tbody>
+          <!-- end::Table body -->
+        </table>
+
+        <div class="d-flex flex-stack flex-wrap pt-10">
+          <div class="fs-6 fw-bold text-gray-700">Showing 1 to 10 of 50 entries</div>
+
+          <ul class="pagination">
+            <li class="page-item previous">
+              <a class="page-link cursor-pointer">
+                <i class="previous"></i>
+              </a>
+            </li>
+
+            <li class="page-item active">
+              <a class="page-link cursor-pointer"> 1 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 2 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 3 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 4 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 5 </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link cursor-pointer"> 6 </a>
+            </li>
+
+            <li class="page-item next">
+              <a class="page-link cursor-pointer">
+                <i class="next"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end::Table -->
+    </div>
+    <!-- end::Tap pane -->
+  </div>
+</div>
+<!-- end::Body -->
